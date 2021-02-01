@@ -1,0 +1,113 @@
+package presentacion;
+
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+/**
+ *
+ * @author Cristian Meneses y Pedro Higuera
+ */
+public class PanelRegistro extends JPanel{
+    
+    public static PanelRegistro instancia;
+    
+    //CONSTRUCTOR
+    public PanelRegistro() {
+        initComponents();
+    }
+    
+    public void initComponents(){
+        
+        this.setBackground(new Color(243,243,243));
+        this.setLayout(null);
+        this.setBounds(0,0,500,350);
+        
+        titulo = new JLabel("REGISTRO");
+        titulo.setHorizontalAlignment(SwingConstants.CENTER);
+        titulo.setBounds(215, 25, 70, 10);
+        this.add(titulo);
+        
+        parrafo1 = new JLabel("Ingresa los correspondientes datos para poder registrarte");
+        parrafo1.setBounds(75, 60, 350, 20);
+        parrafo1.setHorizontalAlignment(SwingConstants.CENTER);
+        this.add(parrafo1);
+        
+        nom = new JLabel("Nombre:");
+        nom.setBounds(84,100,60,20);
+        this.add(nom);
+        
+        nombre = new JTextField();
+        nombre.setBounds(160,100,260,25);
+        this.add(nombre);
+        
+        ape = new JLabel("Apellido:");
+        ape.setBounds(84,130,60,20);
+        this.add(ape);
+        
+        apellido = new JTextField();
+        apellido.setBounds(160,130,260,25);
+        this.add(apellido);
+        
+        cor = new JLabel("Correo:");
+        cor.setBounds(84,160,60,20);
+        this.add(cor);
+        
+        correo = new JTextField();
+        correo.setBounds(160,160,260,25);
+        this.add(correo);
+        
+        tel = new JLabel("Telefono:");
+        tel.setBounds(84,190,60,20);
+        this.add(tel);
+        
+        telefono = new JTextField();
+        telefono.setBounds(160,190,260,25);
+        this.add(telefono);
+        
+        dir = new JLabel("Direccion:");
+        dir.setBounds(84,220,60,20);
+        this.add(dir);
+        
+        direccion = new JTextField();
+        direccion.setBounds(160,220,260,25);
+        this.add(direccion);
+        
+        cred = new JLabel("Credito:");
+        cred.setBounds(84,250,60,20);
+        this.add(cred);
+        
+        credito = new JTextField();
+        credito.setBounds(160,250,260,25);
+        this.add(credito);
+        
+        registrarse = new JButton("Registrarse");
+        registrarse.setBounds(84, 310, 165, 20);
+        registrarse.setBackground(Color.black);
+        registrarse.setForeground(Color.WHITE);
+        this.add(registrarse);
+        
+        atras = new JButton("Atrás");
+        atras.setBounds(255, 310, 165, 20);
+        atras.setBackground(Color.black);
+        atras.setForeground(Color.WHITE);
+        this.add(atras);
+        
+    }
+    
+    public static PanelRegistro getInstancia(){
+        if(instancia==null){
+            instancia = new PanelRegistro();
+        }
+        return instancia;
+    }
+    
+    private JLabel titulo,parrafo1,nom,ape,cor,tel,dir,cred;
+    private JTextField nombre,apellido,correo,telefono,direccion,credito;
+    private JButton registrarse,atras;
+
+}

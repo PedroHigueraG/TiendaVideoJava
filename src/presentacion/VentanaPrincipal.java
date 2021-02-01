@@ -10,6 +10,8 @@ public class VentanaPrincipal extends JFrame{
     
     //ATRIBUTOS
     public static VentanaPrincipal instancia;
+    public PanelPrincipal pInicial = PanelPrincipal.getInstancia();
+    public PanelRegistro pRegistro = PanelRegistro.getInstancia();
     
     //CONSTRUCTOR
     public VentanaPrincipal(){
@@ -20,11 +22,14 @@ public class VentanaPrincipal extends JFrame{
     public void initComponents(){
         setResizable(false);
         setTitle("Tienda Video");
-        setSize(500,300);
+        setSize(500,350);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(true);
         setVisible(true);
+        pInicial.setVisible(false);
+        add(pInicial);
+        add(pRegistro);
     }
     
     //SINGLETON
