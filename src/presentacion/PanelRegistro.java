@@ -110,4 +110,37 @@ public class PanelRegistro extends JPanel{
     private JTextField nombre,apellido,correo,telefono,direccion,credito;
     private JButton registrarse,atras;
 
+    //GETTERS
+    public JTextField getNombre() {
+        return nombre;
+    }
+
+    public JTextField getApellido() {
+        return apellido;
+    }
+
+    public JTextField getTelefono() {
+        return telefono;
+    }
+
+    public JTextField getDireccion() {
+        return direccion;
+    }
+
+    public JTextField getCredito() {
+        return credito;
+    }
+
+    public JButton getRegistrarse() {
+        return registrarse;
+    }
+
+    public JTextField getCorreo() {
+        return correo;
+    }
+
+    public JButton getAtras() {
+        return atras;
+    }
+
 }

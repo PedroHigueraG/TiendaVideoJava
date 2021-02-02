@@ -27,7 +27,7 @@ public class VentanaPrincipal extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(true);
         setVisible(true);
-        pInicial.setVisible(false);
+        pRegistro.setVisible(false);
         add(pInicial);
         add(pRegistro);
     }

@@ -60,4 +60,12 @@ public class PanelPrincipal extends JPanel{
     private JLabel titulo;
     private JButton registrarse, salir;
 
+    public JButton getRegistrarse() {
+        return registrarse;
+    }
+
+    public JButton getSalir() {
+        return salir;
+    }
+    
 }
