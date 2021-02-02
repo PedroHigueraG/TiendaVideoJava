@@ -36,7 +36,7 @@ public class PanelRegistro extends JPanel{
         parrafo1.setBounds(75, 60, 350, 20);
         parrafo1.setHorizontalAlignment(SwingConstants.CENTER);
         this.add(parrafo1);
-        
+
         nom = new JLabel("Nombre:");
         nom.setBounds(84,100,60,20);
         this.add(nom);
@@ -85,14 +85,22 @@ public class PanelRegistro extends JPanel{
         credito.setBounds(160,250,260,25);
         this.add(credito);
         
-        registrarse = new JButton("Registrarse");
-        registrarse.setBounds(84, 310, 165, 20);
+        id = new JLabel("ID:");
+        id.setBounds(84,280,60,20);
+        this.add(id);
+        
+        idm = new JTextField();
+        idm.setBounds(160,280,260,25);
+        this.add(idm);
+        
+        registrarse = new JButton("Guardar");
+        registrarse.setBounds(84, 320, 165, 20);
         registrarse.setBackground(Color.black);
         registrarse.setForeground(Color.WHITE);
         this.add(registrarse);
         
         atras = new JButton("Atrás");
-        atras.setBounds(255, 310, 165, 20);
+        atras.setBounds(255, 320, 165, 20);
         atras.setBackground(Color.black);
         atras.setForeground(Color.WHITE);
         this.add(atras);
@@ -106,8 +114,8 @@ public class PanelRegistro extends JPanel{
         return instancia;
     }
     
-    private JLabel titulo,parrafo1,nom,ape,cor,tel,dir,cred;
-    private JTextField nombre,apellido,correo,telefono,direccion,credito;
+    private JLabel titulo,parrafo1,nom,ape,cor,tel,dir,cred,id;
+    private JTextField nombre,apellido,correo,telefono,direccion,credito,idm;
     private JButton registrarse,atras;
 
     //GETTERS
@@ -142,5 +150,11 @@ public class PanelRegistro extends JPanel{
     public JButton getAtras() {
         return atras;
     }
+
+    public JTextField getIdm() {
+        return idm;
+    }
+
+    
 
 }
