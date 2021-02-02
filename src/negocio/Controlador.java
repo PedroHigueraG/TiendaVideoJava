@@ -59,8 +59,10 @@ public class Controlador implements ActionListener{
             }else{
                 int cred = Integer.parseInt(credito);
                 int tel = Integer.parseInt(telefono);
+                System.out.println(tel);
                 bd.AgregarUsuario(id, nombre, apellido, tel, direccion, cred, correo);
                 JOptionPane.showMessageDialog(ventana, "Usuario registrado correctamente");
+                mail.enviarCorreo(correo, nombre, apellido);
                 limpiarCampos();
             }
         }
