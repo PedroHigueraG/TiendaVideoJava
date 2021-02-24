@@ -76,4 +76,13 @@ public class PanelIngreso extends JPanel{
     private JLabel titulo,parrafo1,user,pass;
     private JTextField usuario,contraseña;
     private JButton ingresar,atras;
+
+    public JButton getIngresar() {
+        return ingresar;
+    }
+
+    public JButton getAtras() {
+        return atras;
+    }
+    
 }
