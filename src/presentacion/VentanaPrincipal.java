@@ -12,6 +12,7 @@ public class VentanaPrincipal extends JFrame{
     public static VentanaPrincipal instancia;
     public PanelPrincipal pInicial = PanelPrincipal.getInstancia();
     public PanelRegistro pRegistro = PanelRegistro.getInstancia();
+    public PanelIngreso pIngreso = PanelIngreso.getInstancia();
     
     //CONSTRUCTOR
     public VentanaPrincipal(){
@@ -28,8 +29,10 @@ public class VentanaPrincipal extends JFrame{
         setUndecorated(true);
         setVisible(true);
         pRegistro.setVisible(false);
+        pIngreso.setVisible(false);
         add(pInicial);
         add(pRegistro);
+        add(pIngreso);
     }
     
     //SINGLETON

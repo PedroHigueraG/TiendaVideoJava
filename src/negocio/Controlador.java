@@ -30,6 +30,7 @@ public class Controlador implements ActionListener{
         ventana.pRegistro.getAtras().addActionListener(this);
         ventana.pInicial.getRegistrarse().addActionListener(this);
         ventana.pInicial.getSalir().addActionListener(this);
+        ventana.pInicial.getIngresar().addActionListener(this);
         bd.EstablecerConexion();
     }
 
@@ -73,6 +74,10 @@ public class Controlador implements ActionListener{
         if (ae.getSource() == ventana.pInicial.getRegistrarse()) {
             ventana.pInicial.setVisible(false);
             ventana.pRegistro.setVisible(true);
+        }
+        if (ae.getSource() == ventana.pInicial.getIngresar()) {
+            ventana.pInicial.setVisible(false);
+            ventana.pIngreso.setVisible(true);
         }
         if (ae.getSource() == ventana.pInicial.getSalir()) {
             bd.DetenerConexion();

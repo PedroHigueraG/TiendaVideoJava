@@ -35,10 +35,16 @@ public class PanelPrincipal extends JPanel{
         this.add(titulo);
         
         registrarse = new JButton("Registrar Cliente");
-        registrarse.setBounds(150, 145, 200, 40);
+        registrarse.setBounds(150, 115, 200, 40);
         registrarse.setBackground(Color.black);
         registrarse.setForeground(Color.WHITE);
         this.add(registrarse);
+        
+        ingresar = new JButton("Ingresar Empleado");
+        ingresar.setBounds(150, 165, 200, 40);
+        ingresar.setBackground(Color.black);
+        ingresar.setForeground(Color.WHITE);
+        this.add(ingresar);
         
         salir = new JButton("Salir");
         salir.setBounds(150, 305, 200, 20);
@@ -58,7 +64,7 @@ public class PanelPrincipal extends JPanel{
     
     //ATRIBUTOS
     private JLabel titulo;
-    private JButton registrarse, salir;
+    private JButton registrarse,ingresar, salir;
 
     public JButton getRegistrarse() {
         return registrarse;
@@ -67,5 +73,10 @@ public class PanelPrincipal extends JPanel{
     public JButton getSalir() {
         return salir;
     }
+
+    public JButton getIngresar() {
+        return ingresar;
+    }
+    
     
 }
