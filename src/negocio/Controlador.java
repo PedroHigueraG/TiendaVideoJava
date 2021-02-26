@@ -3,6 +3,7 @@ package negocio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import persistencia.Archivo;
 import persistencia.BasesDatos;
 import persistencia.Correo;
 import presentacion.VentanaPrincipal;
@@ -11,21 +12,22 @@ import presentacion.VentanaPrincipal;
  *
  * @author Cristian Meneses y Pedro Higuera
  */
+public class Controlador implements ActionListener {
 
-public class Controlador implements ActionListener{
-    
     //ATRIBUTOS
-    private String id,nombre,apellido,correo,telefono,direccion,credito;
+    private String nombre, apellido, correo, telefono, direccion, credito;
+    private int id;
     VentanaPrincipal ventana;
     BasesDatos bd;
     Correo mail;
-    
+
     //CONTROLADOR
-    public Controlador(VentanaPrincipal vista,BasesDatos base, Correo correo){
-        
+    public Controlador(VentanaPrincipal vista, BasesDatos base, Correo correo) {
+
         ventana = vista;
         bd = base;
         mail = correo;
+
         ventana.pRegistro.getRegistrarse().addActionListener(this);
         ventana.pRegistro.getAtras().addActionListener(this);
         ventana.pInicial.getRegistrarse().addActionListener(this);
@@ -35,10 +37,10 @@ public class Controlador implements ActionListener{
         ventana.pIngreso.getIngresar().addActionListener(this);
         ventana.pBusqueda.getAtras().addActionListener(this);
         bd.EstablecerConexion();
+        bd.consultarVacios();
     }
 
-    public void limpiarCampos(){
-        ventana.pRegistro.getIdm().setText("");
+    public void limpiarCampos() {
         ventana.pRegistro.getNombre().setText("");
         ventana.pRegistro.getApellido().setText("");
         ventana.pRegistro.getCorreo().setText("");
@@ -46,24 +48,25 @@ public class Controlador implements ActionListener{
         ventana.pRegistro.getTelefono().setText("");
         ventana.pRegistro.getCredito().setText("");
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == ventana.pRegistro.getRegistrarse()) {
-            id = ventana.pRegistro.getIdm().getText();
-             nombre = ventana.pRegistro.getNombre().getText();
-             apellido = ventana.pRegistro.getApellido().getText();
-             correo = ventana.pRegistro.getCorreo().getText();
-             direccion = ventana.pRegistro.getDireccion().getText();
-             telefono = ventana.pRegistro.getTelefono().getText();
-             credito = ventana.pRegistro.getCredito().getText();
-            
-            if(id.length()==0 || nombre.length()==0 || apellido.length()==0 || correo.length()==0 || direccion.length()==0 || telefono.length()==0 || credito.length()==0){
+            nombre = ventana.pRegistro.getNombre().getText();
+            apellido = ventana.pRegistro.getApellido().getText();
+            correo = ventana.pRegistro.getCorreo().getText();
+            direccion = ventana.pRegistro.getDireccion().getText();
+            telefono = ventana.pRegistro.getTelefono().getText();
+            credito = ventana.pRegistro.getCredito().getText();
+
+            if (nombre.length() == 0 || apellido.length() == 0 || correo.length() == 0 || direccion.length() == 0 || telefono.length() == 0 || credito.length() == 0) {
                 JOptionPane.showMessageDialog(ventana, "Por favor diligencie todos los datos");
-            }else{
+            } else {
                 int cred = Integer.parseInt(credito);
                 int tel = Integer.parseInt(telefono);
                 System.out.println(tel);
+                id = bd.consultarId();
+                id++;
                 bd.AgregarUsuario(id, nombre, apellido, tel, direccion, cred, correo);
                 JOptionPane.showMessageDialog(ventana, "Usuario registrado correctamente");
                 mail.enviarCorreo(correo, nombre, apellido);
@@ -74,6 +77,7 @@ public class Controlador implements ActionListener{
             ventana.pInicial.setVisible(true);
             ventana.pRegistro.setVisible(false);
         }
+
         if (ae.getSource() == ventana.pInicial.getRegistrarse()) {
             ventana.pInicial.setVisible(false);
             ventana.pRegistro.setVisible(true);
@@ -87,8 +91,20 @@ public class Controlador implements ActionListener{
             ventana.pIngreso.setVisible(false);
         }
         if (ae.getSource() == ventana.pIngreso.getIngresar()) {
-            ventana.pBusqueda.setVisible(true);
-            ventana.pIngreso.setVisible(false);
+            String user = ventana.pIngreso.getUsuario().getText();
+            String contrasena = ventana.pIngreso.getContraseña().getText();
+
+            boolean usuario = bd.consultarEmpleado(" " + user, " "+contrasena);
+
+            if (usuario) {
+                JOptionPane.showMessageDialog(ventana, "bienvenido " + bd.consultarNombre(" "+contrasena));
+                ventana.pBusqueda.setVisible(true);
+                ventana.pIngreso.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(ventana, "usuario o contraseña incorrecta, por favor confirme");
+                ventana.pIngreso.getUsuario().setText("");
+                ventana.pIngreso.getContraseña().setText("");
+            }
         }
         if (ae.getSource() == ventana.pBusqueda.getAtras()) {
             ventana.pBusqueda.setVisible(false);
@@ -99,5 +115,5 @@ public class Controlador implements ActionListener{
             System.exit(0);
         }
     }
-    
+
 }

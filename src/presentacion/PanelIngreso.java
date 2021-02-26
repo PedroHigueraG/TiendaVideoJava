@@ -84,5 +84,12 @@ public class PanelIngreso extends JPanel{
     public JButton getAtras() {
         return atras;
     }
+
+    public JTextField getUsuario() {
+        return usuario;
+    }
     
+    public JTextField getContraseña() {
+        return contraseña;
+    }
 }

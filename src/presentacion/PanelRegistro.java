@@ -84,15 +84,7 @@ public class PanelRegistro extends JPanel{
         credito = new JTextField();
         credito.setBounds(160,250,260,25);
         this.add(credito);
-        
-        id = new JLabel("ID:");
-        id.setBounds(84,280,60,20);
-        this.add(id);
-        
-        idm = new JTextField();
-        idm.setBounds(160,280,260,25);
-        this.add(idm);
-        
+                
         registrarse = new JButton("Guardar");
         registrarse.setBounds(84, 320, 165, 20);
         registrarse.setBackground(Color.black);
@@ -114,8 +106,8 @@ public class PanelRegistro extends JPanel{
         return instancia;
     }
     
-    private JLabel titulo,parrafo1,nom,ape,cor,tel,dir,cred,id;
-    private JTextField nombre,apellido,correo,telefono,direccion,credito,idm;
+    private JLabel titulo,parrafo1,nom,ape,cor,tel,dir,cred;
+    private JTextField nombre,apellido,correo,telefono,direccion,credito;
     private JButton registrarse,atras;
 
     //GETTERS
@@ -149,10 +141,6 @@ public class PanelRegistro extends JPanel{
 
     public JButton getAtras() {
         return atras;
-    }
-
-    public JTextField getIdm() {
-        return idm;
     }
 
     
