@@ -23,9 +23,10 @@ public class Controlador implements ActionListener{
     //CONTROLADOR
     public Controlador(VentanaPrincipal vista,BasesDatos base, Correo correo){
         
-        ventana = vista;
+       ventana = vista;
         bd = base;
         mail = correo;
+
         ventana.pRegistro.getRegistrarse().addActionListener(this);
         ventana.pRegistro.getAtras().addActionListener(this);
         ventana.pInicial.getRegistrarse().addActionListener(this);
@@ -35,10 +36,10 @@ public class Controlador implements ActionListener{
         ventana.pIngreso.getIngresar().addActionListener(this);
         ventana.pBusqueda.getAtras().addActionListener(this);
         bd.EstablecerConexion();
+        bd.consultarVacios();
     }
 
     public void limpiarCampos(){
-        ventana.pRegistro.getIdm().setText("");
         ventana.pRegistro.getNombre().setText("");
         ventana.pRegistro.getApellido().setText("");
         ventana.pRegistro.getCorreo().setText("");
@@ -50,7 +51,6 @@ public class Controlador implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == ventana.pRegistro.getRegistrarse()) {
-            id = ventana.pRegistro.getIdm().getText();
              nombre = ventana.pRegistro.getNombre().getText();
              apellido = ventana.pRegistro.getApellido().getText();
              correo = ventana.pRegistro.getCorreo().getText();
@@ -87,8 +87,20 @@ public class Controlador implements ActionListener{
             ventana.pIngreso.setVisible(false);
         }
         if (ae.getSource() == ventana.pIngreso.getIngresar()) {
-            ventana.pBusqueda.setVisible(true);
-            ventana.pIngreso.setVisible(false);
+            String user = ventana.pIngreso.getUsuario().getText();
+            String contrasena = ventana.pIngreso.getContraseña().getText();
+
+            boolean usuario = bd.consultarEmpleado(" " + user, " "+contrasena);
+
+            if (usuario) {
+                JOptionPane.showMessageDialog(ventana, "bienvenido " + bd.consultarNombre(" "+contrasena));
+                ventana.pBusqueda.setVisible(true);
+                ventana.pIngreso.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(ventana, "usuario o contraseña incorrecta, por favor confirme");
+                ventana.pIngreso.getUsuario().setText("");
+                ventana.pIngreso.getContraseña().setText("");
+            }
         }
         if (ae.getSource() == ventana.pBusqueda.getAtras()) {
             ventana.pBusqueda.setVisible(false);

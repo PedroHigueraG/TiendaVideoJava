@@ -52,7 +52,7 @@ public class PanelIngreso extends JPanel{
         contraseña.setBounds(160,190,260,25);
         this.add(contraseña);
         
-        ingresar = new JButton("Guardar");
+        ingresar = new JButton("Ingresar");
         ingresar.setBounds(84, 320, 165, 20);
         ingresar.setBackground(Color.black);
         ingresar.setForeground(Color.WHITE);
@@ -84,5 +84,15 @@ public class PanelIngreso extends JPanel{
     public JButton getAtras() {
         return atras;
     }
+
+    public JTextField getUsuario() {
+        return usuario;
+    }
+
+    public JTextField getContraseña() {
+        return contraseña;
+    }
+    
+    
     
 }

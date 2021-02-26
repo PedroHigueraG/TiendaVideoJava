@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Distrital/2020-3/FundamentosBD/Trabajos/VideoJava/TiendaVideo/src/persistencia/Correo.java</file>
+            <file>file:/D:/Distrital/2020-3/FundamentosBD/Trabajos/VideoJava/TiendaVideo/src/presentacion/VentanaPrincipal.java</file>
+            <file>file:/D:/Distrital/2020-3/FundamentosBD/Trabajos/VideoJava/TiendaVideo/src/presentacion/PanelPrincipal.java</file>
+            <file>file:/D:/Distrital/2020-3/FundamentosBD/Trabajos/VideoJava/TiendaVideo/src/presentacion/PanelRegistro.java</file>
+            <file>file:/D:/Distrital/2020-3/FundamentosBD/Trabajos/VideoJava/TiendaVideo/src/negocio/Controlador.java</file>
+            <file>file:/D:/Distrital/2020-3/FundamentosBD/Trabajos/VideoJava/TiendaVideo/src/presentacion/PanelBusqueda.java</file>
+            <file>file:/D:/Distrital/2020-3/FundamentosBD/Trabajos/VideoJava/TiendaVideo/src/presentacion/PanelIngreso.java</file>
         </group>
     </open-files>
 </project-private>
