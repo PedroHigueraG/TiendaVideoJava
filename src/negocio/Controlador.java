@@ -111,12 +111,13 @@ public class Controlador implements ActionListener {
         }
         if (ae.getSource() == ventana.pBusqueda.getBuscar()) {
             String op = (String)ventana.pBusqueda.getOpciones().getSelectedItem();
+            String titulo = ventana.pBusqueda.getBusqueda().getText();
             if("Titulo".equals(op)){
-                String titulo = ventana.pBusqueda.getBusqueda().getText();
+                
                 bd.consultarPelicula(ventana.pBusqueda.getTabla(), titulo);
             }
             if("Actor".equals(op)){
-                System.out.println(op);
+                bd.consultarActor(ventana.pBusqueda.getTabla(), titulo);
             }
             if("Membresia".equals(op)){
                 System.out.println(op);

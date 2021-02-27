@@ -188,6 +188,43 @@ public class BasesDatos {
             e.printStackTrace();
         }
     }
+    
+    public void consultarActor(JTable tabla,String actor) {
+        Statement s = null;
+        String nombre = " ";
+        
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("id");
+        model.addColumn("Titulo");
+        model.addColumn("Estreno");
+        model.addColumn("Actor");
+        model.addColumn("Nacimiento");
+        
+        tabla.setModel(model);
+        
+        String[] datos = new String[5];
+        try {
+
+            s = connection.createStatement();
+            ResultSet rs = s.executeQuery("select pelicula.idpelicula,pelicula.titulo,pelicula.fechaestreno,actor.nombrereal,actor.fechanacimiento "
+                    + "from pelicula,peliculaactor,actor "
+                    + "where pelicula.idpelicula=peliculaactor.idpeliculafk and actor.idactor=peliculaactor.idactorfk and actor.nombrereal like '%"+actor+"%';");
+            
+            while(rs.next()){
+                datos[0]=rs.getString(1);
+                datos[1]=rs.getString(2);
+                datos[2]=rs.getString(3);
+                datos[3]=rs.getString(4);
+                datos[4]=rs.getString(5);
+                model.addRow(datos);
+            }
+           
+        } catch (Exception e) {
+            System.out.println("Error en la tabla");
+            e.printStackTrace();
+        }
+    }
 
     public void llenarEmpleado(int idEmpleado, String nombre, String apellido, String usuario, String password) {
 
