@@ -93,6 +93,4 @@ public class PanelIngreso extends JPanel{
         return contraseña;
     }
     
-    
-    
 }

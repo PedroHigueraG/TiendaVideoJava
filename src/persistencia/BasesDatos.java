@@ -1,5 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package persistencia;
 
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,7 +13,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author Cistian Meneses y Pedro Higuera
+ * @author Cristian Meneses y Pedro Higuera
  */
 public class BasesDatos {
 
@@ -21,7 +27,9 @@ public class BasesDatos {
         if (connection != null) {
             return;
         }
+
         String url = "jdbc:postgresql://localhost:5432/TiendaVideo";
+
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -46,8 +54,10 @@ public class BasesDatos {
         }
     }
 
+
     // AGREGAR USUARIO
-    public void AgregarUsuario(String id, String nombre, String apellido, int telefono, String direccion, int credito, String correo) {
+    public void AgregarUsuario(int id, String nombre, String apellido, int telefono, String direccion, int credito, String correo) {
+
 
         Statement s = null;
 
@@ -334,9 +344,8 @@ public class BasesDatos {
         try {
             s = connection.createStatement();
             // INSERTA LOS DATOS
-            int z = s.executeUpdate(
-                    "INSERT INTO estado (idestado,estado) VALUES ('"
-                    + id + "',' " + estado + "');");
+            int z = s.executeUpdate("INSERT INTO estado (idestado,estado) VALUES ('" + id + "',' " + estado + "');");
+
             connection.commit();
             if (z == 1) {
                 System.out.println("Se agregó el registro de manera exitosa!");
@@ -348,7 +357,10 @@ public class BasesDatos {
             System.out.println("Problema en insertar registro");
             e.printStackTrace();
         }
+
     }
+
+ 
 
     public void llenarCinta(int id, int idPeliculaFK, int idFormatoFK, int idEstadoFK) {
         Statement s = null;
@@ -371,4 +383,5 @@ public class BasesDatos {
             e.printStackTrace();
         }
     }
+
 }

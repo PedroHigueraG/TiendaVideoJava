@@ -107,7 +107,8 @@ public class PanelRegistro extends JPanel{
     }
     
     private JLabel titulo,parrafo1,nom,ape,cor,tel,dir,cred;
-    private JTextField nombre,apellido,correo,telefono,direccion,credito,idm;
+    private JTextField nombre,apellido,correo,telefono,direccion,credito;
+
     private JButton registrarse,atras;
 
     //GETTERS
@@ -142,5 +143,5 @@ public class PanelRegistro extends JPanel{
     public JButton getAtras() {
         return atras;
     }
-    
+
 }

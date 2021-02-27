@@ -1,6 +1,5 @@
 package persistencia;
 
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -10,6 +9,7 @@ import java.io.FileReader;
  * @author Cistian Meneses y Pedro Higuera
  */
 public class Archivo {
+    
     BasesDatos bd;
 
     public void leerArchivo() {
@@ -24,6 +24,7 @@ public class Archivo {
 
             // Apertura del fichero y creacion de BufferedReader
             archivo = new File("C:\\Users\\USER\\Datos.txt");
+
             fr = new FileReader(archivo);
             br = new BufferedReader(fr);
 
