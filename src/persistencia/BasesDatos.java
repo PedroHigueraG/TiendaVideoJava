@@ -158,7 +158,7 @@ public class BasesDatos {
         return nombre;
     }
 
-    public void consultarPelicula(JTable tabla,String titulo) {
+    public void consultarPelicula(JTable tabla,String titulo,String estado) {
         Statement s = null;
         String nombre = " ";
         
@@ -174,7 +174,8 @@ public class BasesDatos {
         try {
 
             s = connection.createStatement();
-            ResultSet rs = s.executeQuery("select * from pelicula where titulo like '%"+titulo+"%'");
+            ResultSet rs = s.executeQuery("select pelicula.idpelicula,pelicula.titulo,pelicula.fechaestreno from pelicula,estado,cinta \n" +
+"where titulo like '%"+titulo+"%' and pelicula.idpelicula= cinta.idpeliculafk and cinta.idestadofk=estado.idestado and estado='"+estado+"';");
             
             while(rs.next()){
                 datos[0]=rs.getString(1);
@@ -189,7 +190,7 @@ public class BasesDatos {
         }
     }
     
-    public void consultarActor(JTable tabla,String actor) {
+    public void consultarActor(JTable tabla,String actor,String estado) {
         Statement s = null;
         String nombre = " ";
         
@@ -207,9 +208,10 @@ public class BasesDatos {
         try {
 
             s = connection.createStatement();
-            ResultSet rs = s.executeQuery("select pelicula.idpelicula,pelicula.titulo,pelicula.fechaestreno,actor.nombrereal,actor.fechanacimiento "
-                    + "from pelicula,peliculaactor,actor "
-                    + "where pelicula.idpelicula=peliculaactor.idpeliculafk and actor.idactor=peliculaactor.idactorfk and actor.nombrereal like '%"+actor+"%';");
+            ResultSet rs = s.executeQuery("select pelicula.idpelicula,pelicula.titulo,pelicula.fechaestreno,actor.nombrereal,actor.fechanacimiento \n" +
+"from pelicula,peliculaactor,actor,cinta,estado\n" +
+"where pelicula.idpelicula=peliculaactor.idpeliculafk and actor.idactor=peliculaactor.idactorfk and actor.nombrereal like '%"+actor+"%' \n" +
+"and pelicula.idpelicula=cinta.idpeliculafk and cinta.idestadofk=estado.idestado and estado='"+estado+"';");
             
             while(rs.next()){
                 datos[0]=rs.getString(1);

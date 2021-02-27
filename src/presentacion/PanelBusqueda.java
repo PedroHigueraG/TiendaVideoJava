@@ -1,10 +1,12 @@
 package presentacion;
 
 import java.awt.Color;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -46,17 +48,39 @@ public class PanelBusqueda extends JPanel {
         this.add(opciones);
 
         tabla = new JTable();
-        tabla.setBounds(30, 100, 430, 200);
+        tabla.setBounds(30, 100, 430, 180);
         tabla.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         tabla.doLayout();
         tabla.setEnabled(false);
         this.add(tabla);
 
         JScrollPane js = new JScrollPane(tabla);
-        js.setBounds(30, 100, 430, 200);
+        js.setBounds(30, 100, 430, 180);
         js.setVisible(true);
         this.add(js);
 
+        libre = new JRadioButton("Libre",true);
+        libre.setBounds(30, 290, 100, 25);
+        this.add(libre);
+        
+        prestada = new JRadioButton("Prestada",false);
+        prestada.setBounds(150, 290, 100, 25);
+        this.add(prestada);
+        
+        dañada = new JRadioButton("Dañada",false);
+        dañada.setBounds(280, 290, 100, 25);
+        this.add(dañada);
+        
+        perdida = new JRadioButton("Perdida",false);
+        perdida.setBounds(410, 290, 100, 25);
+        this.add(perdida);
+        
+        ButtonGroup grupo = new ButtonGroup();
+        grupo.add(libre);
+        grupo.add(prestada);
+        grupo.add(dañada);
+        grupo.add(perdida);
+        
         buscar = new JButton("Buscar");
         buscar.setBounds(84, 320, 165, 20);
         buscar.setBackground(Color.black);
@@ -84,6 +108,7 @@ public class PanelBusqueda extends JPanel {
     private JComboBox opciones;
     private JButton buscar, atras;
     private JTable tabla;
+    private JRadioButton libre,prestada,dañada,perdida;
 
     //GETTERS
     public JTextField getBusqueda() {
@@ -106,4 +131,20 @@ public class PanelBusqueda extends JPanel {
         return tabla;
     }
 
+    public JRadioButton getLibre() {
+        return libre;
+    }
+
+    public JRadioButton getPrestada() {
+        return prestada;
+    }
+
+    public JRadioButton getDañada() {
+        return dañada;
+    }
+
+    public JRadioButton getPerdida() {
+        return perdida;
+    }
+    
 }

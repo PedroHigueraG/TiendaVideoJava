@@ -112,12 +112,21 @@ public class Controlador implements ActionListener {
         if (ae.getSource() == ventana.pBusqueda.getBuscar()) {
             String op = (String)ventana.pBusqueda.getOpciones().getSelectedItem();
             String titulo = ventana.pBusqueda.getBusqueda().getText();
+            String estado="";
+            if(ventana.pBusqueda.getLibre().isSelected()){
+                estado=" L";
+            }if(ventana.pBusqueda.getPrestada().isSelected()){
+                estado=" P";
+            }if(ventana.pBusqueda.getDañada().isSelected()){
+                estado=" D";
+            }if(ventana.pBusqueda.getPerdida().isSelected()){
+                estado=" PP";
+            }
             if("Titulo".equals(op)){
-                
-                bd.consultarPelicula(ventana.pBusqueda.getTabla(), titulo);
+                bd.consultarPelicula(ventana.pBusqueda.getTabla(),titulo,estado);
             }
             if("Actor".equals(op)){
-                bd.consultarActor(ventana.pBusqueda.getTabla(), titulo);
+                bd.consultarActor(ventana.pBusqueda.getTabla(),titulo,estado);
             }
             if("Membresia".equals(op)){
                 bd.consultarMembresia(ventana.pBusqueda.getTabla(), titulo);
