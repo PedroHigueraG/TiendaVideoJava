@@ -4,6 +4,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -48,7 +49,7 @@ public class PanelIngreso extends JPanel{
         pass.setBounds(84,190,80,20);
         this.add(pass);
         
-        contraseña = new JTextField();
+        contraseña = new JPasswordField();
         contraseña.setBounds(160,190,260,25);
         this.add(contraseña);
         
@@ -74,7 +75,8 @@ public class PanelIngreso extends JPanel{
     }
     
     private JLabel titulo,parrafo1,user,pass;
-    private JTextField usuario,contraseña;
+    private JTextField usuario;
+    private JPasswordField contraseña;
     private JButton ingresar,atras;
 
     public JButton getIngresar() {
@@ -89,7 +91,7 @@ public class PanelIngreso extends JPanel{
         return usuario;
     }
 
-    public JTextField getContraseña() {
+    public JPasswordField getContraseña() {
         return contraseña;
     }
     

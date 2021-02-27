@@ -93,16 +93,17 @@ public class Controlador implements ActionListener {
         }
         if (ae.getSource() == ventana.pIngreso.getIngresar()) {
             String user = ventana.pIngreso.getUsuario().getText();
-            String contrasena = ventana.pIngreso.getContraseña().getText();
+            String contrasena = new String(ventana.pIngreso.getContraseña().getPassword());
 
-            boolean usuario = bd.consultarEmpleado(" " + user, " "+contrasena);
+            boolean usuario = bd.consultarEmpleado(" "+user," "+contrasena);
+            System.out.println(usuario);
 
             if (usuario) {
                 JOptionPane.showMessageDialog(ventana, "bienvenido " + bd.consultarNombre(" "+contrasena));
                 ventana.pBusqueda.setVisible(true);
                 ventana.pIngreso.setVisible(false);
             } else {
-                JOptionPane.showMessageDialog(ventana, "usuario o contraseña incorrecta, por favor confirme");
+                JOptionPane.showMessageDialog(ventana, "Usuario o contraseña incorrecta, por favor confirme");
                 ventana.pIngreso.getUsuario().setText("");
                 ventana.pIngreso.getContraseña().setText("");
             }
