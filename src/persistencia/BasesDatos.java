@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -29,7 +31,6 @@ public class BasesDatos {
         }
 
         String url = "jdbc:postgresql://localhost:5432/TiendaVideo";
-
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -54,10 +55,8 @@ public class BasesDatos {
         }
     }
 
-
     // AGREGAR USUARIO
     public void AgregarUsuario(int id, String nombre, String apellido, int telefono, String direccion, int credito, String correo) {
-
 
         Statement s = null;
 
@@ -157,6 +156,37 @@ public class BasesDatos {
             e.printStackTrace();
         }
         return nombre;
+    }
+
+    public void consultarPelicula(JTable tabla,String titulo) {
+        Statement s = null;
+        String nombre = " ";
+        
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("id");
+        model.addColumn("Titulo");
+        model.addColumn("Estreno");
+        
+        tabla.setModel(model);
+        
+        String[] datos = new String[3];
+        try {
+
+            s = connection.createStatement();
+            ResultSet rs = s.executeQuery("select * from pelicula where titulo like '%"+titulo+"%'");
+            
+            while(rs.next()){
+                datos[0]=rs.getString(1);
+                datos[1]=rs.getString(2);
+                datos[2]=rs.getString(3);
+                model.addRow(datos);
+            }
+           
+        } catch (Exception e) {
+            System.out.println("Error en la tabla");
+            e.printStackTrace();
+        }
     }
 
     public void llenarEmpleado(int idEmpleado, String nombre, String apellido, String usuario, String password) {
@@ -359,8 +389,6 @@ public class BasesDatos {
         }
 
     }
-
- 
 
     public void llenarCinta(int id, int idPeliculaFK, int idFormatoFK, int idEstadoFK) {
         Statement s = null;

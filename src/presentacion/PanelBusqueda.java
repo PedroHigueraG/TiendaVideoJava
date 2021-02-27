@@ -5,6 +5,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -39,9 +40,16 @@ public class PanelBusqueda extends JPanel{
         opciones = new JComboBox();
         opciones.addItem("Titulo");
         opciones.addItem("Actor");
-        opciones.addItem("Membresía");
+        opciones.addItem("Membresia");
         opciones.setBounds(300,60,120,25);
         this.add(opciones);
+        
+        tabla = new JTable();
+        tabla.setBounds(30,100,430,200);
+        tabla.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        tabla.doLayout();
+        tabla.setEnabled(false);
+        this.add(tabla);
         
         buscar = new JButton("Buscar");
         buscar.setBounds(84, 320, 165, 20);
@@ -69,6 +77,7 @@ public class PanelBusqueda extends JPanel{
     private JTextField busqueda;
     private JComboBox opciones;
     private JButton buscar, atras;
+    private JTable tabla;
     
     //GETTERS
 
@@ -82,6 +91,14 @@ public class PanelBusqueda extends JPanel{
 
     public JButton getAtras() {
         return atras;
+    }
+
+    public JComboBox getOpciones() {
+        return opciones;
+    }
+
+    public JTable getTabla() {
+        return tabla;
     }
     
 }

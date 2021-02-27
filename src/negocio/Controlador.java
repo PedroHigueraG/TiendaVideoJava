@@ -35,6 +35,7 @@ public class Controlador implements ActionListener {
         ventana.pInicial.getIngresar().addActionListener(this);
         ventana.pIngreso.getAtras().addActionListener(this);
         ventana.pIngreso.getIngresar().addActionListener(this);
+        ventana.pBusqueda.getBuscar().addActionListener(this);
         ventana.pBusqueda.getAtras().addActionListener(this);
         bd.EstablecerConexion();
         bd.consultarVacios();
@@ -106,6 +107,19 @@ public class Controlador implements ActionListener {
                 JOptionPane.showMessageDialog(ventana, "Usuario o contraseña incorrecta, por favor confirme");
                 ventana.pIngreso.getUsuario().setText("");
                 ventana.pIngreso.getContraseña().setText("");
+            }
+        }
+        if (ae.getSource() == ventana.pBusqueda.getBuscar()) {
+            String op = (String)ventana.pBusqueda.getOpciones().getSelectedItem();
+            if("Titulo".equals(op)){
+                String titulo = ventana.pBusqueda.getBusqueda().getText();
+                bd.consultarPelicula(ventana.pBusqueda.getTabla(), titulo);
+            }
+            if("Actor".equals(op)){
+                System.out.println(op);
+            }
+            if("Membresia".equals(op)){
+                System.out.println(op);
             }
         }
         if (ae.getSource() == ventana.pBusqueda.getAtras()) {
