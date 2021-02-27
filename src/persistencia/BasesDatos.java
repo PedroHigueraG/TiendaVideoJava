@@ -225,6 +225,35 @@ public class BasesDatos {
             e.printStackTrace();
         }
     }
+    
+    public void consultarMembresia(JTable tabla,String titulo) {
+        Statement s = null;
+        String nombre = " ";
+        
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("Nombre");
+        model.addColumn("Apellido");
+        
+        tabla.setModel(model);
+        
+        String[] datos = new String[2];
+        try {
+
+            s = connection.createStatement();
+            ResultSet rs = s.executeQuery("select nombre,apellido from usuario where idmembresia = '"+titulo+"';");
+            
+            while(rs.next()){
+                datos[0]=rs.getString(1);
+                datos[1]=rs.getString(2);
+                model.addRow(datos);
+            }
+           
+        } catch (Exception e) {
+            System.out.println("Error en la tabla");
+            e.printStackTrace();
+        }
+    }
 
     public void llenarEmpleado(int idEmpleado, String nombre, String apellido, String usuario, String password) {
 

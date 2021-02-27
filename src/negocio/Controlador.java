@@ -120,7 +120,7 @@ public class Controlador implements ActionListener {
                 bd.consultarActor(ventana.pBusqueda.getTabla(), titulo);
             }
             if("Membresia".equals(op)){
-                System.out.println(op);
+                bd.consultarMembresia(ventana.pBusqueda.getTabla(), titulo);
             }
         }
         if (ae.getSource() == ventana.pBusqueda.getAtras()) {
