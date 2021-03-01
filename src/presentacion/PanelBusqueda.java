@@ -82,13 +82,19 @@ public class PanelBusqueda extends JPanel {
         grupo.add(perdida);
         
         buscar = new JButton("Buscar");
-        buscar.setBounds(84, 320, 165, 20);
+        buscar.setBounds(30, 320, 140, 20);
         buscar.setBackground(Color.black);
         buscar.setForeground(Color.WHITE);
         this.add(buscar);
+        
+        siguiente = new JButton("Siguiente");
+        siguiente.setBounds(190, 320, 140, 20);
+        siguiente.setBackground(Color.black);
+        siguiente.setForeground(Color.WHITE);
+        this.add(siguiente);
 
         atras = new JButton("Atrás");
-        atras.setBounds(255, 320, 165, 20);
+        atras.setBounds(350, 320, 140, 20);
         atras.setBackground(Color.black);
         atras.setForeground(Color.WHITE);
         this.add(atras);
@@ -106,7 +112,7 @@ public class PanelBusqueda extends JPanel {
     private JLabel titulo;
     private JTextField busqueda;
     private JComboBox opciones;
-    private JButton buscar, atras;
+    private JButton buscar, atras, siguiente;
     private JTable tabla;
     private JRadioButton libre,prestada,dañada,perdida;
 
@@ -145,6 +151,10 @@ public class PanelBusqueda extends JPanel {
 
     public JRadioButton getPerdida() {
         return perdida;
+    }
+
+    public JButton getSiguiente() {
+        return siguiente;
     }
     
 }

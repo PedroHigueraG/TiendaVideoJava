@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -176,6 +177,38 @@ public class BasesDatos {
             s = connection.createStatement();
             ResultSet rs = s.executeQuery("select pelicula.idpelicula,pelicula.titulo,pelicula.fechaestreno from pelicula,estado,cinta \n" +
 "where titulo like '%"+titulo+"%' and pelicula.idpelicula= cinta.idpeliculafk and cinta.idestadofk=estado.idestado and estado='"+estado+"';");
+            
+            while(rs.next()){
+                datos[0]=rs.getString(1);
+                datos[1]=rs.getString(2);
+                datos[2]=rs.getString(3);
+                model.addRow(datos);
+            }
+           
+        } catch (Exception e) {
+            System.out.println("Error en la tabla");
+            e.printStackTrace();
+        }
+    }
+    
+        public void consultarPeliculaLibre(JTable tabla) {
+        Statement s = null;
+        String nombre = " ";
+        
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("id");
+        model.addColumn("Titulo");
+        model.addColumn("Estreno");
+        
+        tabla.setModel(model);
+        
+        String[] datos = new String[3];
+        try {
+
+            s = connection.createStatement();
+            ResultSet rs = s.executeQuery("select pelicula.idpelicula,pelicula.titulo,pelicula.fechaestreno from pelicula,estado,cinta \n" +
+"where pelicula.idpelicula= cinta.idpeliculafk and cinta.idestadofk=estado.idestado and estado=' L';");
             
             while(rs.next()){
                 datos[0]=rs.getString(1);
@@ -452,7 +485,7 @@ public class BasesDatos {
             }
         } catch (Exception e) {
 
-            System.out.println("Problema en insertar registro");
+            System.out.println("Problema en insertar registro estado");
             e.printStackTrace();
         }
 

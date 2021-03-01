@@ -14,6 +14,7 @@ public class VentanaPrincipal extends JFrame{
     public PanelRegistro pRegistro = PanelRegistro.getInstancia();
     public PanelIngreso pIngreso = PanelIngreso.getInstancia();
     public PanelBusqueda pBusqueda = PanelBusqueda.getInstancia();
+    public PanelPrestamo pPrestamo = PanelPrestamo.getInstancia();
     
     //CONSTRUCTOR
     public VentanaPrincipal(){
@@ -32,10 +33,12 @@ public class VentanaPrincipal extends JFrame{
         pRegistro.setVisible(false);
         pIngreso.setVisible(false);
         pBusqueda.setVisible(false);
+        pPrestamo.setVisible(false);
         add(pInicial);
         add(pRegistro);
         add(pIngreso);
         add(pBusqueda);
+        add(pPrestamo);
     }
     
     //SINGLETON

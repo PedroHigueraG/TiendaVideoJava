@@ -23,7 +23,7 @@ public class Archivo {
             bd.EstablecerConexion();
 
             // Apertura del fichero y creacion de BufferedReader
-            archivo = new File("C:\\Users\\USER\\Datos.txt");
+            archivo = new File("src/persistencia/Datos.txt");
 
             fr = new FileReader(archivo);
             br = new BufferedReader(fr);

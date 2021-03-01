@@ -21,6 +21,7 @@ public class Controlador implements ActionListener {
     BasesDatos bd;
     Correo mail;
 
+
     //CONTROLADOR
     public Controlador(VentanaPrincipal vista,BasesDatos base, Correo correo){
         
@@ -37,6 +38,9 @@ public class Controlador implements ActionListener {
         ventana.pIngreso.getIngresar().addActionListener(this);
         ventana.pBusqueda.getBuscar().addActionListener(this);
         ventana.pBusqueda.getAtras().addActionListener(this);
+        ventana.pBusqueda.getSiguiente().addActionListener(this);
+        ventana.pPrestamo.getAtras().addActionListener(this);
+        ventana.pPrestamo.getGuardar().addActionListener(this);
         bd.EstablecerConexion();
         bd.consultarVacios();
     }
@@ -132,9 +136,18 @@ public class Controlador implements ActionListener {
                 bd.consultarMembresia(ventana.pBusqueda.getTabla(), titulo);
             }
         }
+        if (ae.getSource() == ventana.pBusqueda.getSiguiente()) {
+           //bd.consultarPeliculaLibre(ventana.pPrestamo.getTabla());
+            ventana.pBusqueda.setVisible(false);
+            ventana.pPrestamo.setVisible(true);
+        }
         if (ae.getSource() == ventana.pBusqueda.getAtras()) {
             ventana.pBusqueda.setVisible(false);
             ventana.pIngreso.setVisible(true);
+        }
+        if (ae.getSource() == ventana.pPrestamo.getAtras()) {
+            ventana.pPrestamo.setVisible(false);
+            ventana.pBusqueda.setVisible(true);
         }
         if (ae.getSource() == ventana.pInicial.getSalir()) {
             bd.DetenerConexion();
