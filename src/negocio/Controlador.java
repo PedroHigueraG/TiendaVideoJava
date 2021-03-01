@@ -38,6 +38,7 @@ public class Controlador implements ActionListener {
         ventana.pIngreso.getIngresar().addActionListener(this);
         ventana.pBusqueda.getBuscar().addActionListener(this);
         ventana.pBusqueda.getAtras().addActionListener(this);
+        ventana.pBusqueda.getAgregar().addActionListener(this);
         ventana.pBusqueda.getSiguiente().addActionListener(this);
         ventana.pPrestamo.getAtras().addActionListener(this);
         ventana.pPrestamo.getGuardar().addActionListener(this);
@@ -137,9 +138,12 @@ public class Controlador implements ActionListener {
             }
         }
         if (ae.getSource() == ventana.pBusqueda.getSiguiente()) {
-           //bd.consultarPeliculaLibre(ventana.pPrestamo.getTabla());
+           bd.consultarPeliculaLibre(ventana.pPrestamo.getTabla());
             ventana.pBusqueda.setVisible(false);
             ventana.pPrestamo.setVisible(true);
+        }
+        if (ae.getSource() == ventana.pBusqueda.getAgregar()) {
+            System.out.println("ola");
         }
         if (ae.getSource() == ventana.pBusqueda.getAtras()) {
             ventana.pBusqueda.setVisible(false);

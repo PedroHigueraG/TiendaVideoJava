@@ -37,7 +37,7 @@ public class PanelPrestamo extends JPanel{
         titulo.setBounds(215, 25, 70, 10);
         this.add(titulo);
 
-        /*
+        
         tabla = new JTable();
         tabla.setBounds(30, 100, 430, 180);
         tabla.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -49,46 +49,7 @@ public class PanelPrestamo extends JPanel{
         js.setBounds(30, 100, 430, 180);
         js.setVisible(true);
         this.add(js);
-        */
-        p1 = new JCheckBox("Peli 1");
-        p1.setBounds(30,50,80,20);
-        this.add(p1);
         
-        p2 = new JCheckBox("Peli 1");
-        p2.setBounds(30,80,80,20);
-        this.add(p2);
-        
-        p3 = new JCheckBox("Peli 1");
-        p3.setBounds(30,110,80,20);
-        this.add(p3);
-        
-        p4 = new JCheckBox("Peli 1");
-        p4.setBounds(30,140,80,20);
-        this.add(p4);
-        
-        p5 = new JCheckBox("Peli 1");
-        p5.setBounds(30,170,80,20);
-        this.add(p5);
-        
-        p6 = new JCheckBox("Peli 1");
-        p6.setBounds(30,200,80,20);
-        this.add(p6);
-        
-        p7 = new JCheckBox("Peli 1");
-        p7.setBounds(30,230,80,20);
-        this.add(p7);
-        
-        p8 = new JCheckBox("Peli 1");
-        p8.setBounds(30,260,80,20);
-        this.add(p8);
-        
-        p9 = new JCheckBox("Peli 1");
-        p9.setBounds(30,290,80,20);
-        this.add(p9);
-        
-        p10 = new JCheckBox("Peli 1");
-        p10.setBounds(30,310,80,20);
-        this.add(p10);
         
         totaltext = new JLabel("Total");
         totaltext.setBounds(30, 290, 140, 20);

@@ -48,17 +48,31 @@ public class PanelBusqueda extends JPanel {
         this.add(opciones);
 
         tabla = new JTable();
-        tabla.setBounds(30, 100, 430, 180);
+        tabla.setBounds(30, 100, 380, 180);
         tabla.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         tabla.doLayout();
         tabla.setEnabled(false);
         this.add(tabla);
 
         JScrollPane js = new JScrollPane(tabla);
-        js.setBounds(30, 100, 430, 180);
+        js.setBounds(30, 100, 380, 180);
         js.setVisible(true);
         this.add(js);
 
+        pedir = new JLabel("Id:");
+        pedir.setBounds(420, 100, 50, 20);
+        this.add(pedir);
+        
+        id = new JTextField();
+        id.setBounds(420, 130, 60, 20);
+        this.add(id);
+        
+        agregar = new JButton("Add");
+        agregar.setBounds(420, 160, 60, 20);
+        agregar.setBackground(Color.black);
+        agregar.setForeground(Color.WHITE);
+        this.add(agregar);
+        
         libre = new JRadioButton("Libre",true);
         libre.setBounds(30, 290, 100, 25);
         this.add(libre);
@@ -109,10 +123,10 @@ public class PanelBusqueda extends JPanel {
     }
 
     //ATRIBUTOS
-    private JLabel titulo;
-    private JTextField busqueda;
+    private JLabel titulo,pedir;
+    private JTextField busqueda,id;
     private JComboBox opciones;
-    private JButton buscar, atras, siguiente;
+    private JButton buscar, atras, siguiente, agregar;
     private JTable tabla;
     private JRadioButton libre,prestada,dañada,perdida;
 
@@ -156,5 +170,14 @@ public class PanelBusqueda extends JPanel {
     public JButton getSiguiente() {
         return siguiente;
     }
+
+    public JTextField getId() {
+        return id;
+    }
+
+    public JButton getAgregar() {
+        return agregar;
+    }
+    
     
 }
