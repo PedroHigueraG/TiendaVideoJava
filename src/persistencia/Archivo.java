@@ -61,7 +61,7 @@ public class Archivo {
                 linea = br.readLine();
                 formato(linea);
             }
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 4; i++) {
                 linea = br.readLine();
                 estado(linea);
             }
@@ -95,7 +95,7 @@ public class Archivo {
     public void usuario(String linea) {
         String[] partes = linea.split("/");
         int id = Integer.parseInt(partes[0]);
-        bd.llenarUsuario(id, partes[1], partes[2], partes[3], partes[4], partes[5]);
+        bd.llenarUsuario(id, partes[1], partes[2], partes[3], partes[4], partes[5], partes[6]);
     }
 
     public void actor(String linea) {
