@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -23,6 +24,7 @@ public class BasesDatos {
     // ATRIBUTOS
     private Connection connection;
     private Archivo ar;
+    private String usuarioEmpleado;
 
     // METODO PARA ESTABLECER CONEXION CON LA BASE DE DATOS
     public void EstablecerConexion() {
