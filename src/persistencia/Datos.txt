@@ -8,16 +8,16 @@
 8/alejandro/perdomo/alOMO8/8omola
 9/daniela/erazo/daAZO9/9ozaad
 10/rafael/cifuentes/raTES10/01setar
-1/alba/lopez/5698632/calle 52 # 15 - 48/1000000
-2/alejandra/vargas/9681365/carrera 104 # 13 - 51/500000
-3/camilo/martinez/3861357/diagonal 45 # 25 - 06/800000
-4/diego/prieto/6753249/calle 145 # 20 - 12/1500000
-5/edward/ruiz/4689468/calle 85 # 40 - 14/650000
-6/juan/ardila/9683157/carrera 15 # 160 - 81/950000
-7/juliana/vargas/4685935/calle 38 # 9 - 30/900000
-8/sara/garcia/2368469/carrera 14 # 91 - 52/1000000
-9/sebastaian/daza/4985317/diagonal 14 # 45 - 11/1500000
-10/sergio/pulido/6753126/calle 151 # 15 - 13/800000
+1/alba/lopez/5698632/calle 52 # 15 - 48/1000000/dannymene99@gmail.com
+2/alejandra/vargas/9681365/carrera 104 # 13 - 51/500000/dannymene99@gmail.com
+3/camilo/martinez/3861357/diagonal 45 # 25 - 06/800000/dannymene99@gmail.com
+4/diego/prieto/6753249/calle 145 # 20 - 12/1500000/dannymene99@gmail.com
+5/edward/ruiz/4689468/calle 85 # 40 - 14/650000/dannymene99@gmail.com
+6/juan/ardila/9683157/carrera 15 # 160 - 81/950000/higueragarzonpedroarturo@gmail.com
+7/juliana/vargas/4685935/calle 38 # 9 - 30/900000/higueragarzonpedroarturo@gmail.com
+8/sara/garcia/2368469/carrera 14 # 91 - 52/1000000/higueragarzonpedroarturo@gmail.com
+9/sebastaian/daza/4985317/diagonal 14 # 45 - 11/1500000/higueragarzonpedroarturo@gmail.com
+10/sergio/pulido/6753126/calle 151 # 15 - 13/800000/higueragarzonpedroarturo@gmail.com
 1/angelina jolie/04-06-1975
 2/brad pitt/18-12-1963
 3/jennifer aniston/11-02-1969
@@ -81,13 +81,7 @@
 1/L
 2/P
 3/D
-4/L
-5/L
-6/L
-7/P
-8/PP
-9/L
-10/L
+4/PP
 1/1/9/1
 2/2/4/1
 3/3/9/1
