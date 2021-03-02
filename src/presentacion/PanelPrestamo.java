@@ -17,9 +17,9 @@ import javax.swing.SwingConstants;
  *
  * @author Cistian Meneses y Pedro Higuera
  */
-public class PanelPrestamo extends JPanel{
-    
-     public static PanelPrestamo instancia;
+public class PanelPrestamo extends JPanel {
+
+    public static PanelPrestamo instancia;
 
     //CONSTRUCTOR
     public PanelPrestamo() {
@@ -37,7 +37,6 @@ public class PanelPrestamo extends JPanel{
         titulo.setBounds(215, 25, 70, 10);
         this.add(titulo);
 
-        
         tabla = new JTable();
         tabla.setBounds(30, 100, 430, 180);
         tabla.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -49,16 +48,23 @@ public class PanelPrestamo extends JPanel{
         js.setBounds(30, 100, 430, 180);
         js.setVisible(true);
         this.add(js);
-        
-        
+
         totaltext = new JLabel("Total");
         totaltext.setBounds(30, 290, 140, 20);
         this.add(totaltext);
-        
+
         total = new JTextField();
-        total.setBounds(190, 290, 140, 20);
+        total.setBounds(80, 290, 140, 20);
         this.add(total);
-        
+
+        usuariotext = new JLabel("Usuario");
+        usuariotext.setBounds(250, 290, 140, 20);
+        this.add(usuariotext);
+
+        usuario = new JTextField();
+        usuario.setBounds(300, 290, 140, 20);
+        this.add(usuario);
+
         guardar = new JButton("Guardar");
         guardar.setBounds(30, 320, 140, 20);
         guardar.setBackground(Color.black);
@@ -81,14 +87,12 @@ public class PanelPrestamo extends JPanel{
     }
 
     //ATRIBUTOS
-    private JLabel titulo,totaltext;
-    private JTextField total;
+    private JLabel titulo, totaltext, usuariotext;
+    private JTextField total, usuario;
     private JButton guardar, atras;
     private JTable tabla;
-    private JCheckBox p1,p2,p3,p4,p5,p6,p7,p8,p9,p10;
-    
-    //GETTERS
 
+    //GETTERS
     public JTextField getTotal() {
         return total;
     }
@@ -104,5 +108,10 @@ public class PanelPrestamo extends JPanel{
     public JTable getTabla() {
         return tabla;
     }
+
+    public JTextField getUsuario() {
+        return usuario;
+    }
     
+
 }
